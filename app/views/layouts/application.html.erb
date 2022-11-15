@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>99 Cats</title>
+    
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -14,6 +15,13 @@
   <body>
     <nav class="main-nav">
       <h1><a href="<%= cats_url %>">99 Cats</a></h1>
+        <%if logged_in? %>
+          <h2>Welcome, <%=current_user.username%>! </h2>
+          <button>Logout</button>
+        <%else%>
+          <h4>Welcome, please log in</h4>
+          <button>Login</button>
+        <%end%>
     </nav>
     <main>
       <%= yield %>
